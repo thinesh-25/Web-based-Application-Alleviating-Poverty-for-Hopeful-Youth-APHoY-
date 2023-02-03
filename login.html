@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APHoY</title>
+    <link rel="icon" type="image/png" href="logov_2.svg">
+    <link rel="stylesheet" href="style.css">
+    <!---we had linked our css file----->
+</head>
+<body>
+    <div class="full-page">
+        <div class="navbar">
+            <div>
+                <a href='home.html'>APHoY</a>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href='home.html'>Home</a></li>
+                    <li><a href='aboutus.html'>About Us</a></li>
+                    <!--<li><a href='login.html'><button class="loginbtn" onclick="document.getElementById('login-form').style.display='block'" style="width:auto;"></button></a></li>-->
+                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id='login-form'class='login-page'>
+            <div class="form-box">
+                <div class='button-box'>
+                    <div id='btn'></div>
+                    <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
+                    <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+                </div>
+                <form id='login' action='login.php' class='input-group-login' method='POST'>
+                    <label>Email ID:</label>
+                    <input type='text' name='email' class='input-field'placeholder='Email Id' required >
+                    <label>Enter Password:</label>
+                    <input type='password' name = 'pass' class='input-field'placeholder='Enter Password' required>
+                    <input type='checkbox'class='check-box'><span>Remember Password</span>
+                    <button type='submit' name = 'submit' class='submit-btn'>Log in</button>
+		        </form>
+                <form id='register' action='register.php' class='input-group-register' method='POST'>
+                    <label>Name:</label>
+                    <input type='text'name='name' class='input-field'placeholder='Full Name' required>
+                    <label>Staff/Student ID:</label><br>
+                    <small>Enter a 6-digit Staff or Student ID only</small>
+                    <input type='text' pattern='[0-9]{6}' name = 'staff_student_id' class='input-field'placeholder='Staff / Student ID' required>
+                    <label>Email ID:</label><br>
+                    <small>Enter a valid email address (e.g. example@student.usm.my or example@usm.my)</small>
+                    <input type='email' name='email' class='input-field'placeholder='Email Id' required>
+                    <label>National Registration Identification Card (NRIC):</label>
+                    <input type='text' name = 'nric' class='input-field'placeholder='NRIC' required>
+                    <label>Contact Number:</label><br>
+                    <small>Enter a Malaysian contact number starting with 601</small>
+                    <input type='text' pattern='601[0-9]{8,9}' name = 'contact_number' class='input-field'placeholder='Contact Number' required>
+                    <!--<input type='text'class='input-field'placeholder='Gender' required>-->
+                    <label>Gender:</label>
+                    <select id="gender" name="gender">
+                        <optgroup label="Gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    <!--<input type='text'class='input-field'placeholder='School' required>-->
+                    </br>
+                    </br>
+                    <label>School:</label>
+                    <select id="school" name="school">
+                        <optgroup label="School">
+                            <option value="arts">School of Arts</option>
+                            <option value="chemical">School of Chemical Sciences</option>
+                            <option value="bio">School of Biolgical Sciences </option>
+                            <option value="cs">School of Computer Science</option>
+                            <option value="de">School of Distance Education</option>
+                            <option value="es">School of Educational Studies</option>
+                            <option value="hbp">School of Housing Building and Planning </option>
+                            <option value="communication">School of Communication</option> 
+                            <option value="humanities">School of Humanities</option>
+                            <option value="industrial">School of Industrial Technology</option>
+                            <option value="management">School of Management </option>
+                            <option value="ms">School of Mathematical Sciences</option>
+                            <option value="ps">School of Pharmaceutical Sciences</option>
+                            <option value="physics">School of Physics</option>
+                            <option value="hbp">School of Social Sciences </option>
+                            <option value="communication">School of Language Literacy and Translation</option>
+                            <option value="na">Not applicable</option>
+                        </select>
+                    </br>
+                    </br>
+                    <!--<input type='text 'name = 'job_status' class='input-field'placeholder='Job Status' required>-->
+                    <label>Job Status:</label>
+                    <select id="job_status" name="job_status">
+                        <optgroup label="Job Status">
+                            <option value="Student">Student</option>
+                            <option value="Employed">Employed</option>
+                            <option value="Unemployed">Unemployed</option>
+                        </select>
+                    </br>
+                    </br>
+                    <label>Monthly Income:</label>
+                    <input type='text'name ='income' class='input-field'placeholder='Monthly Income' required>
+                    
+                    <!--<input type='email'class='input-field'placeholder='Email Id' required>-->
+                    <label>Enter Password:</label>
+                    <input type='password' name='pass' class='input-field'placeholder='Enter Password' required>
+                    <label>Confirm Password:</label>
+                    <input type='password' name='cpass' class='input-field'placeholder='Confirm Password'  required>
+                    <!--<input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span>-->
+                            <button type='submit' name = 'submit2' class='submit-btn'>Register</button>
+	            </form>
+            </div>
+        </div>
+        <div class="bottom-bar">CAT 304: Web Development @APHoY</div>
+
+    </div>
+    <script>
+        var x=document.getElementById('login');
+		var y=document.getElementById('register');
+		var z=document.getElementById('btn');
+		function register()
+		{
+			x.style.left='-400px';
+			y.style.left='50px';
+			z.style.left='110px';
+		}
+		function login()
+		{
+			x.style.left='50px';
+			y.style.left='450px';
+			z.style.left='0px';
+		}
+	</script>
+	<script>
+        var modal = document.getElementById('login-form');
+        window.onclick = function(event) 
+        {
+            if (event.target == modal) 
+            {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
